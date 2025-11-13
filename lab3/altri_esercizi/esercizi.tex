@@ -1,0 +1,134 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{minted}
+\geometry{margin=2.5cm}
+\setlength{\parindent}{0pt}
+
+\title{Esercizi di Programmazione (C++)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\setlist[itemize]{noitemsep, topsep=4pt}
+
+\section{Somma degli elementi di un array}
+\textbf{Testo.} Leggi 5 numeri interi e memorizzali in un array. Calcola e stampa la \textbf{somma} di tutti gli elementi.
+\newline 
+\newline
+\textbf{Esempio di esecuzione.}
+\newline 
+\newline
+\noindent\textbf{Input:}
+\begin{verbatim}
+5 7 2 -1 4
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Somma = 17
+\end{verbatim}
+
+\section{Valore massimo e minimo}
+\textbf{Testo.} Leggi 6 numeri interi in un array. Trova e stampa il \textbf{valore massimo} e il \textbf{valore minimo} tra essi.
+\newline 
+\newline
+\textbf{Esempio di esecuzione.}
+\newline 
+\newline
+\noindent\textbf{Input:}
+\begin{verbatim}
+4 9 -2 7 1 5
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Massimo = 9
+Minimo = -2
+\end{verbatim}
+
+\section{Conta i numeri negativi}
+\textbf{Testo.} Leggi 10 numeri interi e conta quanti di essi sono \textbf{negativi}. Stampa il conteggio finale.
+\newline 
+\newline
+\textbf{Esempio di esecuzione.}
+\newline 
+\newline
+\noindent\textbf{Input:}
+\begin{verbatim}
+5 -3 0 -7 12 9 -1 -4 6 8
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Numeri negativi: 4
+\end{verbatim}
+
+\section{Scambio con puntatori}
+\textbf{Testo.} Scrivi una funzione che scambia due valori interi utilizzando i \textbf{puntatori}.  
+La funzione deve avere la seguente firma:
+\begin{minted}{cpp}
+void scambia(int *a, int *b);
+\end{minted}
+Nel programma principale, leggi due interi, scambiali usando la funzione e stampa i nuovi valori.
+\newline 
+\newline
+\textbf{Esempio di esecuzione.}
+\newline 
+\newline
+\noindent\textbf{Input:}
+\begin{verbatim}
+3 10
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Dopo scambio: a = 10 b = 3
+\end{verbatim}
+
+\section{Media intera degli elementi}
+\textbf{Testo.} Scrivi un programma che calcola la \textbf{media intera} dei valori contenuti in un array di numeri interi.  
+\newline 
+\newline
+\textbf{Esempio di esecuzione.}
+\newline 
+\newline
+\noindent\textbf{Input:}
+\begin{verbatim}
+4 6 8 2 10
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Media intera = 6
+\end{verbatim}
+
+\section{Verificare se un array è palindromo}
+\textbf{Testo.} Leggi un array di numeri interi e verifica se è \textbf{palindromo}, cioè se il primo e l’ultimo elemento coincidono, il secondo e il penultimo, e così via. 
+Più rigorosamente, un vettore $v = (v_0, v_1, \dots, v_{n-1})$ è \textbf{palindromo} se e solo se
+\[
+v_i = v_{n - 1 - i} \quad \forall \, i \in \{0, 1, 2, \dots, \lfloor \tfrac{n}{2} \rfloor - 1\}.
+\]
+
+Se la condizione è vera per tutte le coppie, stampa \texttt{si}, altrimenti \texttt{no}.
+\newline 
+\newline
+\textbf{Esempio di esecuzione.}
+\newline 
+\newline
+\noindent\textbf{Input:}
+\begin{verbatim}
+1 2 3 2 1
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+palindromo? si
+\end{verbatim}
+
+\end{document}

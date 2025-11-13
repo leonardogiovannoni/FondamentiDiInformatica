@@ -1,0 +1,65 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry}
+
+% Stile per il codice C++
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=10pt,
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false,
+    frame=single,
+    breaklines=true,
+    breakatwhitespace=true,
+    captionpos=b
+}
+
+\title{Esercizio: Puntatore al valore maggiore}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\section*{Testo dell'esercizio}
+
+Scrivi un programma in linguaggio \textbf{C++} che:
+
+\begin{itemize}
+    \item legga da tastiera due numeri interi;
+    \item crei un puntatore che punti al numero maggiore tra i due;
+    \item visualizzi a schermo il valore del numero maggiore tramite il puntatore;
+    \item modifichi, sempre attraverso il puntatore, il valore del numero maggiore portandolo a zero;
+    \item mostri infine i valori aggiornati di entrambi i numeri.
+\end{itemize}
+
+\section*{Esempio}
+
+\noindent\textbf{Input:}
+\begin{verbatim}
+5 10
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Il numero maggiore e': 10
+Dopo l'azzeramento, i valori sono: a = 5, b = 0
+\end{verbatim}
+
+\end{document}
+

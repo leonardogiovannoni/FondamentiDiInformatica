@@ -1,0 +1,131 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{hyperref}
+\geometry{margin=2.5cm}
+\setlength{\parindent}{0pt}
+
+\title{Esercizi di Programmazione (C++)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\setlist[itemize]{noitemsep, topsep=4pt}
+
+
+\section{Somma dei primi $n$ numeri naturali a partire da 0}
+\textbf{Testo.} Leggi un intero $n$ e calcola la somma dei primi $n$ numeri naturali a partire da $0$, cioè $0 + 1 + 2 + \dots + (n-1)$. Stampa la somma. Se $n \le 0$, la somma vale $0$.
+\newline 
+\newline
+\textbf{Esempio di esecuzione.}
+\begin{verbatim}
+Input
+5
+
+Output
+La somma fa: 10
+\end{verbatim}
+
+\section{Fattoriale di $n$}
+\textbf{Testo.} Leggi un intero $n \ge 0$ e calcola il \textbf{fattoriale} $n! = 1 \cdot 2 \cdot \ldots \cdot n$.
+\newline 
+\newline 
+\textbf{Esempio di esecuzione.}
+\begin{verbatim}
+Input
+5
+
+Output
+Il fattoriale e' 120
+\end{verbatim}
+
+\section{Numeri pari in \texorpdfstring{$[0, n)$}{[0, n)} con conteggio e somma}
+\textbf{Testo.} Leggi un intero $n$ e stampa tutti i numeri pari compresi tra $0$ e $n-1$. Al termine stampa quante occorrenze sono state stampate e la loro somma complessiva.
+\newline 
+\newline 
+\textbf{Esempio di esecuzione.}
+\begin{verbatim}
+Input
+10
+
+Output
+0
+2
+4
+6
+8
+Pari stampati: 5
+Somma dei pari: 20
+\end{verbatim}
+
+\section{Tabellina di un numero}
+\textbf{Testo.} Leggi un intero $n$ e stampa la \textbf{tabellina di $n$} dalla moltiplicazione per $1$ alla moltiplicazione per $10$, nel formato \texttt{n x i = risultato}.
+\newline 
+\newline
+\textbf{Esempio di esecuzione.}
+\begin{verbatim}
+Input
+7
+
+Output
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+7 x 6 = 42
+7 x 7 = 49
+7 x 8 = 56
+7 x 9 = 63
+7 x 10 = 70
+\end{verbatim}
+
+\section{Minimo, massimo e media intera di $N$ numeri}
+\textbf{Testo.} Leggi un intero $N>0$ e poi leggi $N$ interi. Stampa il \textbf{minimo}, il \textbf{massimo} e la \textbf{media intera}.
+\newline \newline \textbf{Esempio di esecuzione.}
+\begin{verbatim}
+Input
+5
+3 10 -2 7 7
+
+Output
+Minimo: -2
+Massimo: 10
+Media intera: 5
+\end{verbatim}
+
+\section{I primi $n$ numeri della sequenza di Fibonacci}
+\textbf{Testo.} Leggi un intero $n$ e stampa i primi $n$ numeri della sequenza di Fibonacci, a partire da 0 e 1. Se $n \le 0$, non stampare nulla; se $n=1$, stampa solo 0.
+\newline \newline \textbf{Esempio di esecuzione.}
+\begin{verbatim}
+Input
+7
+
+Output
+0
+1
+1
+2
+3
+5
+8
+\end{verbatim}
+
+\section{Numero di cifre, somma delle cifre e numero invertito}
+\textbf{Testo.} Leggi un intero non negativo $n$. Stampa: (1) quante cifre ha, (2) la somma delle cifre, (3) il numero ottenuto invertendo l'ordine delle cifre. Gestisci correttamente il caso $n=0$.
+\newline \newline \textbf{Esempio di esecuzione.}
+\begin{verbatim}
+Input
+12345
+
+Output
+Cifre: 5
+Somma cifre: 15
+Invertito: 54321
+\end{verbatim}
+
+\end{document}
