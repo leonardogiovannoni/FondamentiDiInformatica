@@ -1,82 +1,216 @@
 #include <iostream>
 using namespace std;
 
+
+// Nelle figure (che rappresentano gli stack frame rispettivamente di `main`
+// e della funzione `f*` chiamata da `main`) indichiamo con un numero tra parentesi
+// le posizioni nel codice a cui si riferiscono, quindi nel caso di
+// ```
+// int a = 10;
+// // (1)
+// a = a * 2; 
+// ```
+// stiamo indicando con (1) lo stato della memoria subito dopo
+// `int a = 10;` e subito prima di `a = a * 2;`.
+// Con `(*)`, `(**)` e `(***)` indichiamo invece
+// delle posizioni nel `main`, per mostrare l'effetto delle
+// chiamate alle funzioni una volta ritornate.
+
+//
+// (1)                                              (2)
+// ↑ indirizzi bassi                                ↑ indirizzi bassi
+// ┌──────────────────────────────────┐             ┌──────────────────────────────────┐
+// │                                  │             │                                  │
+// │ Stack frame: f1                  │             │ Stack frame: f1                  │
+// │ ┌───────────────┐                │             │ ┌───────────────┐                │
+// │ │ x = 10        │ <─ copia di 'a'              │ │ x = 20        │                │
+// │ └───────────────┘                │             │ └───────────────┘                │   
+// │                                  │             │                                  │   
+// └──────────────────────────────────┘             └──────────────────────────────────┘
+//                                                                                         
+// ┌──────────────────────────────────┐             ┌──────────────────────────────────┐   
+// │                                  │             │                                  │   
+// │ Stack frame: main                │             │ Stack frame: main                │   
+// │ ┌───────────────┐                │             │ ┌───────────────┐                │   
+// │ │ a = 10        │                │             │ │ a = 10        │                │   
+// │ └───────────────┘                │             │ └───────────────┘                │
+// │                                  │             │                                  │
+// └──────────────────────────────────┘             └──────────────────────────────────┘
+// ↓ indirizzi alti                                 ↓ indirizzi alti
+//
+
+//
+// (*)                               
+// ↑ indirizzi bassi
+// ┌──────────────────────────────────┐
+// │                                  │
+// │ Stack frame: main                │
+// │ ┌───────────────┐                │
+// │ │ a = 10        │                │
+// │ └───────────────┘                │
+// │                                  │
+// └──────────────────────────────────┘
+// ↓ indirizzi alti                
+//
+
+
+// il valore della variabile `a` è letto e copiato
+// nella nuova variabile `x`
+void f1(int x) {
+    // (1)
+    x = x * 2;
+    // (2)
+}
+
+
+//
+// (1)                                              (2)
+// ↑ indirizzi bassi                                ↑ indirizzi bassi
+// ┌──────────────────────────────────┐             ┌──────────────────────────────────┐
+// │                                  │             │                                  │
+// │ Stack frame: f2                  │             │ Stack frame: f2                  │
+// │ ┌───────────────┐                │             │ ┌───────────────┐                │
+// │ │ x = 10        │ <─ copia di 'a'              │ │ x = 20        │                │
+// │ └───────────────┘                │             │ └───────────────┘                │   
+// │                                  │             │                                  │   
+// └──────────────────────────────────┘             └──────────────────────────────────┘   
+//                                                                                         
+// ┌──────────────────────────────────┐             ┌──────────────────────────────────┐   
+// │                                  │             │                                  │   
+// │ Stack frame: main                │             │ Stack frame: main                │   
+// │ ┌───────────────┐                │             │ ┌───────────────┐                │   
+// │ │ a = 10        │                │             │ │ a = 10        │                │   
+// │ └───────────────┘                │             │ └───────────────┘                │
+// │                                  │             │                                  │
+// └──────────────────────────────────┘             └──────────────────────────────────┘
+// ↓ indirizzi alti                                 ↓ indirizzi alti
+//
+
+//
+// (**)
+// ↑ indirizzi bassi
+// ┌──────────────────────────────────┐
+// │                                  │
+// │ Stack frame: main                │
+// │ ┌───────────────┐                │
+// │ │ a = 20        │ <─ assegnamento del valore di ritorno (`x`) ad `a`
+// │ └───────────────┘                │
+// │                                  │
+// └──────────────────────────────────┘
+// ↓ indirizzi alti     
+//
+
+
+
+// il valore della variabile `a` è letto e copiato
+// nella nuova variabile `x`, che viene ritornato
+// e può, per esempio, essere riassegnato ad `a`
+int f2(int x) {
+    // (1)
+    x = x * 2;
+    // (2)
+    return x;
+}
+
+// Indichiamo informalmente con `ref` il fatto che
+// una variabile è un riferimento a un'altra variabile.
+// Usiamo la stessa convenzione del lab1, quindi indichiamo con (tmp)
+// il fatto che il compilatore abbia riservato lo spazio per la
+// variabile `tmp`, ma che `tmp` non sia ancora stata definita.
+// La variabile di appoggio `tmp` è utilizzata per mostrare meglio
+// le operazioni che avvengono nella funzione.
+
+// (1)                                              (2)
+// ↑ indirizzi bassi                                ↑ indirizzi bassi
+// ┌──────────────────────────────────┐             ┌──────────────────────────────────┐
+// │                                  │             │                                  │
+// │ Stack frame: f3                  │             │ Stack frame: f3                  │
+// │ ┌───────────────┐                │             │ ┌───────────────┐                │
+// │ │ x = ref a     │────────────────────┐         │ │ x = ref a     │────────────────────┐
+// │ └───────────────┘                │   │         │ └───────────────┘                │   │
+// │                                  │   │         │                                  │   │
+// │ ┌───────────────┐                │   │         │ ┌───────────────┐                │   │
+// │ │ (tmp) = ..    │                │   │         │ │ tmp = 40      │                │   │
+// │ └───────────────┘                │   │         │ └───────────────┘                │   │
+// │                                  │   │         │                                  │   │
+// └──────────────────────────────────┘   │         └──────────────────────────────────┘   │
+//                                        │                                                │
+// ┌──────────────────────────────────┐   │         ┌──────────────────────────────────┐   │
+// │                                  │   │         │                                  │   │
+// │ Stack frame: main                │   │         │ Stack frame: main                │   │
+// │ ┌───────────────┐                │   │         │ ┌───────────────┐                │   │
+// │ │ a = 20        │ <──────────────────┘         │ │ a = 40        │ <──────────────────┘
+// │ └───────────────┘                │             │ └───────────────┘                │
+// │                                  │             │                                  │
+// └──────────────────────────────────┘             └──────────────────────────────────┘
+// ↓ indirizzi alti                                 ↓ indirizzi alti
+
+
+// (3)
+// ↑ indirizzi bassi
+// ┌──────────────────────────────────┐
+// │                                  │
+// │ Stack frame: f3                  │
+// │ ┌───────────────┐                │
+// │ │ x = ref a     │────────────────────┐
+// │ └───────────────┘                │   │
+// │                                  │   │
+// │ ┌───────────────┐                │   │
+// │ │ tmp = 40      │                │   │
+// │ └───────────────┘                │   │
+// │                                  │   │
+// └──────────────────────────────────┘   │             (***)
+//                                        │             ↑ indirizzi bassi
+// ┌──────────────────────────────────┐   │             ┌──────────────────────────────────┐
+// │                                  │   │             │                                  │
+// │ Stack frame: main                │   │             │ Stack frame: main                │
+// │ ┌───────────────┐                │   │             │ ┌───────────────┐                │
+// │ │ a = 40        │ <──────────────────┘             │ │ a = 40        │                │
+// │ └───────────────┘                │                 │ └───────────────┘                │
+// │                                  │                 │                                  │
+// └──────────────────────────────────┘                 └──────────────────────────────────┘
+// ↓ indirizzi alti                                     ↓ indirizzi alti
+
+
+
+
+// Il riferimento è, secondo lo standard del C++, un alias a una variabile
+// ovvero un altro nome per la variabile. In questo caso, questo significa
+// che `x` è "un altro nome" per `a`, definizione che lo standard usa per
+// essere il più generale possibile.
+void f3(int &x) {
+    // (1)
+    // (* qui si legge il valore di `a`
+    int tmp = x * 2;
+    // *)
+    // (2)
+    // (* qui invece si sovrascrive il valore di `a`
+    x = tmp;
+    // *)
+    // (3)
+}
+
+
+
 int main() {
-    const int N = 6;
-    int arr[N] = {};
-
-    cout << "Inserisci " << N << " numeri interi" << endl;
-    for (int i = 0; i < N; i++) {
-        cin >> arr[i];
-    }
-
-    cout << "Array: ";
-    for (int i = 0; i < N; i++) {
-        cout << arr[i] << " ";
-    }
+    int a = 0;
+    cout << "Inserisci un numero intero: ";
+    cin >> a;
     cout << endl;
+    cout << "Valore iniziale: " << a << endl;
 
-    // Settiamo la variabile booleana `crescente` a `true`,
-    // assumendo inizialmente che l'array sia in ordine crescente.
-    // Poi verifichiamo questa ipotesi confrontando coppie di
-    // elementi adiacenti nell'array.
-    // Se troviamo una coppia che non rispetta l'ordine crescente,
-    // impostiamo `crescente` a `false`.
-    bool crescente = true;
-    // Facciamo al più N-1 iterazioni, perché in ogni iterazione
-    // confrontiamo l'elemento in posizione `i` con quello in posizione `i+1`.
-    // Inseriamo anche un controllo sulla variabile booleana `crescente`:
-    // qualora l'array risulti crescente, la variabile rimane `true` e
-    // il ciclo continua per `N-1` volte; se invece troviamo un elemento
-    // che non rispetta la condizione di crescita, mettiamo `crescente`
-    // a `false` perché la proprietà che tutti gli elementi siano
-    // in ordine crescente non è più valida, e quindi possiamo uscire
-    // anticipatamente; all'iterazione successiva la condizione del `while`
-    // sarà la seguente `i < N - 1 && false`, che risulterà `false` e il
-    // ciclo terminerà.
+    f1(a); // Passaggio per valore
+    // (*)
+    cout << "Dopo f1(x): " << a << endl;
 
-    // La condizione `i < N - 1 && crescente` avrà la segunte tabella di verità:
-    //
-    // | i < N - 1 | crescente | i < N - 1 && crescente |
-    // |-----------|-----------|------------------------|     caso 1 con crescente == false
-    // |   false   |   false   |         false          | <----------------------------------+ 
-    // |   false   |   true    |         false          |     caso 2 con crescente == false  |
-    // |    true   |   false   |         false          | <----------------------------------+
-    // |    true   |   true    |          true          |                                    |
-    // +------------------------------------------------+                                    |
-    // Ovvero il ciclo continua se e solo se entrambe le condizioni sono vere.               |
-    // Qualora la condizione `arr[i] < arr[i + 1]` non sia rispettata,                       |
-    // `crescente` viene impostata a `false`, e quindi la condizione                         |
-    // complessiva del `for` diventa `false`, terminando il ciclo.                           |
-    // Qualora invece tutti gli elementi rispettino la condizione di crescita,               |
-    // `crescente` rimane `true` e il ciclo continua fino a completare                       |
-    // tutte le `N-1` iterazioni.                                                            |
-    for (int i = 0; i < N - 1 && crescente; i++) {                 //                        |
-        // La condizione di crescita è che l'elemento in posizione `i` sia                   |
-        // minore di quello in posizione `i + 1`.                                            |
-        bool condizione_di_crescita = (arr[i] < arr[i + 1]);       //                        | 
-        if (!condizione_di_crescita) {                             //                        |      
-            // se la condizione di crescita non è rispettata       //                        |
-            // (ovvero `arr[i] >= arr[i + 1]`), allora             //                        |
-            // ciò è sufficiente per affermare che l'array         //                        |
-            // non è in ordine crescente.                          //                        |
-            // È inutile continuare a controllare gli altri        //                        |
-            // elementi, quindi possiamo uscire dal ciclo          //                        |
-            // anticipatamente.                                    //                        |
-            crescente = false;                                     //                        |  
-            // Settiamo `crescente` a `false`, la condizione complessiva                     |
-            // della prossima iterazione del `for` verrà calcolata come                      |
-            // `i < N - 1 && false`, quindi sia che `i < N - 1` sia                          |
-            // true che false, la condizione complessiva sarà `false` -----------------------+
-            // e il ciclo terminerà.
-        }
-    }
+    a = f2(a); // Passaggio per valore, con riassegnamento
+    // (**)
+    cout << "Dopo x = f2(x): " << a << endl;
 
-    if (crescente) {
-        cout << "L'array e' crescente" << endl;
-    } else {
-        cout << "L'array non e' crescente" << endl;
-    }
+    f3(a); // Passaggio per riferimento
+    // (***)
+    cout << "Dopo f3(x): " << a << endl;
 
     return 0;
 }
+

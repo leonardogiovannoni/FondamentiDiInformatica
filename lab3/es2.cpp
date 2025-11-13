@@ -1,34 +1,35 @@
 #include <iostream>
 using namespace std;
 
+void f1(int x) {
+    x = x * 2;
+}
+
+int f2(int x) {
+    x = x * 2;
+    return x;
+}
+
+void f3(int &x) {
+    int tmp = x * 2;
+    x = tmp;
+}
+
 int main() {
-    const int N = 6;
-    int arr[N] = {};
-
-    cout << "Inserisci " << N << " numeri interi" << endl;
-    for (int i = 0; i < N; i++) {
-        cin >> arr[i];
-    }
-
-    cout << "Array: ";
-    for (int i = 0; i < N; i++) {
-        cout << arr[i] << " ";
-    }
+    int a = 0;
+    cout << "Inserisci un numero intero: ";
+    cin >> a;
     cout << endl;
+    cout << "Valore iniziale: " << a << endl;
 
-    bool crescente = true;
-    for (int i = 0; i < N - 1 && crescente; i++) {
-        bool condizione_di_crescita = (arr[i] < arr[i + 1]);
-        if (!condizione_di_crescita) {
-            crescente = false;
-        }
-    }
+    f1(a);
+    cout << "Dopo f1(x): " << a << endl;
 
-    if (crescente) {
-        cout << "L'array e' crescente" << endl;
-    } else {
-        cout << "L'array non e' crescente" << endl;
-    }
+    a = f2(a);
+    cout << "Dopo x = f2(x): " << a << endl;
+    f3(a);
+    cout << "Dopo f3(x): " << a << endl;
 
     return 0;
 }
+

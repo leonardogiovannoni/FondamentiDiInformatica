@@ -5,6 +5,8 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{geometry}
+\usepackage{minted}
+\geometry{margin=2.5cm}
 
 % Stile per il codice C++
 \lstset{
@@ -26,7 +28,7 @@
     captionpos=b
 }
 
-\title{Esercizio: Verifica ordine crescente in un array}
+\title{Esercizio: Passaggio per valore e per riferimento}
 \author{}
 \date{}
 
@@ -38,43 +40,76 @@
 
 \section*{Testo dell'esercizio}
 
-Scrivi un programma in linguaggio \textbf{C++} che:
+Scrivi un programma in linguaggio \textbf{C++} che permetta di comprendere la differenza tra:
 
 \begin{itemize}
-    \item dichiari un array di dimensione fissa \( N = 6 \);
-    \item legga da tastiera \( N \) numeri interi e li memorizzi nell'array;
-    \item stampi a video l'intero contenuto dell'array;
-    \item verifichi se gli elementi dell'array sono disposti in ordine \textbf{strettamente crescente};
-    \item stampi a video \texttt{L'array e' crescente} se l'array è crescente, altrimenti \texttt{L'array non e' crescente}.
+    \item il \textbf{passaggio per valore};
+    \item il \textbf{passaggio per riferimento}.
 \end{itemize}
+Ogni funzione deve raddoppiare il valore del parametro ricevuto.
+
+\noindent
+Il programma deve eseguire questo main:
+
+%\begin{enumerate}
+%    \item Leggere da tastiera un numero intero \texttt{a}.
+%    \item Stampare il valore iniziale di \texttt{a}.
+%    \item Chiamare una funzione \texttt{f1(int x)} che riceve \texttt{a} per \emph{valore} e raddoppia il suo parametro. Dopo la chiamata, il valore di \texttt{a} nel \texttt{main} rimane invariato.
+%    \item Chiamare una funzione \texttt{f2(int x)} che riceve \texttt{a} per \emph{valore}, ma ritorna il doppio del valore. Il risultato deve essere riassegnato ad \texttt{a} nel \texttt{main}.
+%    \item Chiamare una funzione \texttt{f3(int \&x)} che riceve \texttt{a} per \emph{riferimento} e raddoppia direttamente la variabile originale.
+%\end{enumerate}
+
+\begin{minted}{cpp}
+
+void f1(int x) {
+    // Passaggio per valore
+    // ..
+}
+
+int f2(int x) {
+    // Passaggio per valore, con riassegnamento
+    // ..
+    return ...;
+}
+
+void f3(int &x) {
+    // Passaggio per riferimento
+    // ..
+}
+
+int main() {
+    int a = 0;
+    cout << "Inserisci un numero intero: ";
+    cin >> a;
+    cout << "\nValore iniziale: " << a << endl;
+    f1(a); // Passaggio per valore
+    cout << "Dopo f1(x): " << a << endl;
+    a = f2(a); // Passaggio per valore, con riassegnamento
+    cout << "Dopo x = f2(x): " << a << endl;
+    f3(a); // Passaggio per riferimento
+    cout << "Dopo f3(x): " << a << endl;
+
+    return 0;
+}
+\end{minted}
+
+%\noindent
+%Il programma deve mostrare il valore della variabile \texttt{a} dopo ogni chiamata, per evidenziare le differenze tra i tre casi.
 
 \section*{Esempio}
 
 \noindent\textbf{Input:}
 \begin{verbatim}
-1 3 5 7 9 12
+10
 \end{verbatim}
 
 \noindent\textbf{Output:}
 \begin{verbatim}
-Array: 1 3 5 7 9 12 
-L'array e' crescente
+Valore iniziale: 10
+Dopo f1(x): 10
+Dopo x = f2(x): 20
+Dopo f3(x): 40
 \end{verbatim}
-
-\bigskip
-
-
-\noindent\textbf{Input:}
-\begin{verbatim}
-2 4 8 6 10 12
-\end{verbatim}
-
-\noindent\textbf{Output:}
-\begin{verbatim}
-Array: 2 4 8 6 10 12 
-L'array non e' crescente
-\end{verbatim}
-
 
 \end{document}
 

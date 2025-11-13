@@ -2,34 +2,34 @@
 using namespace std;
 
 
-//             .------------.
-//            (    Inizio    )
-//             '------------'
-//                   |
-//                   v
-//          +----------------+
-//          |    var a, b    |
-//          +----------------+
-//                   |
-//                   v
-//           /-----------------/
-//          /   leggi a, b    /
-//         /-----------------/
-//                   |
-//                   v
-//          +-----------------+
-//          |  var c = a + b  |
-//          +-----------------+
-//                   |
-//                   v
-//           /-----------------/
-//          /    scrivi c     /
-//         /-----------------/
-//                   |
-//                   v
-//             .------------.
-//            (     Fine     )
-//             '------------'
+//             ╭────────────╮
+//             │   Inizio   │
+//             ╰─────┬──────╯
+//                   │
+//                   ▼
+//          ┌────────────────┐
+//          │    var a, b    │
+//          └────────┬───────┘
+//                   │
+//                   ▼
+//           ╱─────────────────╲
+//          ╱   leggi a, b    ╱
+//         ╲─────────────────╱
+//                   │
+//                   ▼
+//          ┌─────────────────┐
+//          │  var c = a + b  │
+//          └────────┬────────┘
+//                   │
+//                   ▼
+//           ╱─────────────────╲
+//          ╱    scrivi c     ╱
+//         ╲─────────────────╱
+//                   │
+//                   ▼
+//             ╭────────────╮
+//             │    Fine    │
+//             ╰────────────╯
 
 int main() {
 
@@ -91,25 +91,25 @@ int main() {
                       
 
                         //      STACK (frame di main)
-                        //  +---------------------------+
-                        //  | (c) :  242605778          |   // Valore casuale; `c` non ancora definita né inizializzata
-                        //  +---------------------------+
-                        //  | (b) :  646376713          |   // Valore casuale; `b` non ancora definita né inizializzata
-                        //  +---------------------------+
-                        //  | (a) :  238421271          |   // Valore casuale; `a` non ancora definita né inizializzata
-                        //  +---------------------------+
+                        //  ┌───────────────────────────┐
+                        //  │ (c) :  242605778          │   // Valore casuale; `c` non ancora definita né inizializzata
+                        //  ├───────────────────────────┤
+                        //  │ (b) :  646376713          │   // Valore casuale; `b` non ancora definita né inizializzata
+                        //  ├───────────────────────────┤
+                        //  │ (a) :  238421271          │   // Valore casuale; `a` non ancora definita né inizializzata
+                        //  └───────────────────────────┘
     // (* 1
     int a = 0;         
     int b = 0;         
 // 1 *)
                         //      STACK (frame di main)
-                        //  +---------------------------+
-                        //  | (c) :  242605778          |   // `c` non ancora definita né inizializzata
-                        //  +---------------------------+
-                        //  |  b  :          0          |   // `b` è stata definita e inizializzata a 0
-                        //  +---------------------------+
-                        //  |  a  :          0          |   // `a` è stata definita e inizializzata a 0
-                        //  +---------------------------+
+                        //  ┌───────────────────────────┐
+                        //  │ (c) :  242605778          │   // `c` non ancora definita né inizializzata
+                        //  ├───────────────────────────┤
+                        //  │  b  :          0          │   // `b` è stata definita e inizializzata a 0
+                        //  ├───────────────────────────┤
+                        //  │  a  :          0          │   // `a` è stata definita e inizializzata a 0
+                        //  └───────────────────────────┘
     cout << "Inserisci un numero a:" << endl;
     // Lettura del primo numero, supponiamo che l'utente inserisca 32.
     // (* 2
@@ -121,23 +121,23 @@ int main() {
     cin >> b; 
     // 3 *)
                         //      STACK (frame di main)
-                        //  +---------------------------+
-                        //  | (c) :  242605778          |   // `c` non ancora né definita né inizializzata
-                        //  +---------------------------+
-                        //  |  b  :         36          |
-                        //  +---------------------------+
-                        //  |  a  :         32          |
-                        //  +---------------------------+
+                        //  ┌───────────────────────────┐
+                        //  │ (c) :  242605778          │   // `c` non ancora né definita né inizializzata
+                        //  ├───────────────────────────┤
+                        //  │  b  :         36          │
+                        //  ├───────────────────────────┤
+                        //  │  a  :         32          │
+                        //  └───────────────────────────┘
     int c = a + b;  // Dichiarazione e inizializzazione della variabile `c`.
 
                         //      STACK (frame di main)
-                        //  +---------------------------+
-                        //  |  c  :         68          |   // `c` è stata definita e inizializzata con il risultato della somma di `a` e `b`
-                        //  +---------------------------+
-                        //  |  b  :         36          | 
-                        //  +---------------------------+
-                        //  |  a  :         32          |
-                        //  +---------------------------+
+                        //  ┌───────────────────────────┐
+                        //  │  c  :         68          │   // `c` è stata definita e inizializzata con il risultato della somma di `a` e `b`
+                        //  ├───────────────────────────┤
+                        //  │  b  :         36          │ 
+                        //  ├───────────────────────────┤
+                        //  │  a  :         32          │
+                        //  └───────────────────────────┘
     cout << "La somma a + b è uguale a: " << c << endl;
 
     return 0;

@@ -5,7 +5,6 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{geometry}
-\geometry{margin=2.5cm}
 
 % Stile per il codice C++
 \lstset{
@@ -27,7 +26,7 @@
     captionpos=b
 }
 
-\title{Esercizio: Quadrato cavo con diagonale principale}
+\title{Esercizio: Puntatore al valore maggiore}
 \author{}
 \date{}
 
@@ -41,33 +40,26 @@
 
 Scrivi un programma in linguaggio \textbf{C++} che:
 
-\begin{enumerate}
-    \item \textbf{Legga} da tastiera un numero intero positivo \texttt{n}, rappresentante la dimensione del lato di un quadrato.
-    \item \textbf{Disegni} un quadrato di lato \texttt{n} utilizzando il carattere \texttt{*}, in modo tale che:
-    \begin{itemize}
-        \item siano visibili i quattro bordi del quadrato;
-        \item sia visibile anche la \textbf{diagonale principale} (da sinistra in alto a destra in basso);
-        \item le altre posizioni interne siano vuote (spazi);
-        \item ogni \texttt{*} sia intervallato da uno spazio.
-    \end{itemize}
-    \item Se l’utente inserisce un valore minore di 1, il programma deve visualizzare un messaggio di errore.
-\end{enumerate}
-Utilizzare una funzione per disegnare il quadrato.
+\begin{itemize}
+    \item legga da tastiera due numeri interi;
+    \item crei un puntatore che punti al numero maggiore tra i due;
+    \item visualizzi a schermo il valore del numero maggiore tramite il puntatore;
+    \item modifichi, sempre attraverso il puntatore, il valore del numero maggiore portandolo a zero;
+    \item mostri infine i valori aggiornati di entrambi i numeri.
+\end{itemize}
 
 \section*{Esempio}
 
 \noindent\textbf{Input:}
 \begin{verbatim}
-5
+5 10
 \end{verbatim}
 
 \noindent\textbf{Output:}
 \begin{verbatim}
-* * * * *
-* *     *
-*   *   *
-*     * *
-* * * * *
+Il numero maggiore e': 10
+Dopo l'azzeramento, i valori sono: a = 5, b = 0
 \end{verbatim}
 
 \end{document}
+

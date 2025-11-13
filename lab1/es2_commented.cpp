@@ -2,37 +2,37 @@
 using namespace std;
 
 
-//                .------------.
-//               (    Inizio    )
-//                '------------'
-//                      |
-//                      v
-//             +----------------+
-//             |   var a, b     |
-//             +----------------+
-//                      |
-//                      v
-//             /------------------/
-//            /    leggi a, b    /
-//           /------------------/
-//                      |
-//                      v
-//            /------------------\
-//           /       a >= b?      \
-//           \                    /
-//            \------------------/
-//                 /         \
-//              Sì/           \No
-//               /             \
-//              v               v
-//      /-----------------/   /-----------------/
-//     / scrivi "max a"  /   / scrivi "max b"  /
-//    /-----------------/   /-----------------/
-//               \             /
-//                v           v
-//                .------------.
-//               (     Fine     )
-//                '------------'
+//                ╭────────────╮
+//                │   Inizio   │
+//                ╰──────┬─────╯
+//                       │
+//                       ▼
+//             ┌─────────────────┐
+//             │   var a, b      │
+//             └────────┬────────┘
+//                      │
+//                      ▼
+//             ╱──────────────────╲
+//            ╱    leggi a, b    ╱
+//           ╲──────────────────╱
+//                      │
+//                      ▼
+//            ╱──────────────────╲
+//           ╱      a >= b?      ╲
+//           ╲                   ╱
+//            ╲──────────────────╱
+//                 ╱         ╲
+//              Sì╱           ╲No
+//               ╱             ╲
+//              ▼               ▼
+//      ╱─────────────────╲   ╱─────────────────╲
+//     ╱ scrivi "max a"  ╱   ╱ scrivi "max b"  ╱
+//    ╲─────────────────╱   ╲─────────────────╱
+//               ╲             ╱
+//                ▼           ▼
+//                ╭────────────╮
+//                │    Fine    │
+//                ╰────────────╯
 
 int main() {
 
@@ -44,20 +44,20 @@ int main() {
                         // inizializzata sono casuali.
 
                         //      STACK (frame di main)
-                        //  +---------------------------+
-                        //  | (b) :   901234561         |  // `b` non ancora definita/inizializzata
-                        //  +---------------------------+
-                        //  | (a) :   345678901         |  // `a` non ancora definita/inizializzata
-                        //  +---------------------------+
+                        //  ┌───────────────────────────┐
+                        //  │ (b) :   901234561         │  // `b` non ancora definita/inizializzata
+                        //  ├───────────────────────────┤
+                        //  │ (a) :   345678901         │  // `a` non ancora definita/inizializzata
+                        //  └───────────────────────────┘
     // Supponiamo, a titolo di esempio, di definire, ma non inizializzare, le variabili `a` e `b`:
     int a;         
     int b;         
                         //      STACK (frame di main)
-                        //  +---------------------------+
-                        //  |  b  :   901234561         |  // `b` definita ma non inizializzata: valore casuale
-                        //  +---------------------------+
-                        //  |  a  :   345678901         |  // `a` definita ma non inizializzata: valore casuale
-                        //  +---------------------------+
+                        //  ┌───────────────────────────┐
+                        //  │  b  :   901234561         │  // `b` definita ma non inizializzata: valore casuale
+                        //  ├───────────────────────────┤
+                        //  │  a  :   345678901         │  // `a` definita ma non inizializzata: valore casuale
+                        //  └───────────────────────────┘
 
                         // In questo esercizio, come in `lab1/es1.cpp`, non si verificano
                         // problemi se una variabile non inizializzata viene scritta da
@@ -77,11 +77,11 @@ int main() {
     // Lettura del secondo numero; supponiamo che l'utente inserisca 12.
     cin >> b;
                         //      STACK (frame di main)
-                        //  +---------------------------+
-                        //  |  b  :         12          |
-                        //  +---------------------------+
-                        //  |  a  :         17          |
-                        //  +---------------------------+
+                        //  ┌───────────────────────────┐
+                        //  │  b  :         12          │
+                        //  ├───────────────────────────┤
+                        //  │  a  :         17          │
+                        //  └───────────────────────────┘
 
     // Valutazione della condizione `a >= b`:
     // Con i valori d’esempio (17 e 12) l’espressione risulta vera, quindi
