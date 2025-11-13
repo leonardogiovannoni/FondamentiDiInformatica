@@ -84,11 +84,11 @@ int main() {
                         //  └───────────────────────────┘
 
     // Valutazione della condizione `a >= b`:
-    // Con i valori d’esempio (17 e 12) l’espressione risulta vera, quindi
+    // Con i valori d'esempio (17 e 12) l'espressione risulta vera, quindi
     // il flusso entra nel ramo "Sì" e stampa `a` come massimo. In caso
     // contrario, entrerebbe nel ramo "No" e stamperebbe `b`.
     //
-    // Notare che l’operatore `>=` gestisce anche il caso di uguaglianza:
+    // Notare che l'operatore `>=` gestisce anche il caso di uguaglianza:
     // se `a == b`, il programma considera `a` come massimo e lo stampa
     // (equivalente a stampare `b`, poiché i valori coincidono).
 

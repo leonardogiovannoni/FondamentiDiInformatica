@@ -4,7 +4,7 @@ using namespace std;
 
 // Il programma legge un intero n e stampa i numeri da 0 a n - 1.
 // Escludendo il ciclo `do..while` (poco usato), ci sono due modi per
-// risolvere l’esercizio: usare `for` oppure `while`.
+// risolvere l'esercizio: usare `for` oppure `while`.
 // Anche se `for` e `while` sono equivalenti (ogni `for` può essere
 // riscritto come `while` e viceversa (1)), in questo caso è più
 // naturale utilizzare il `for`.
@@ -16,10 +16,10 @@ int main() {
     // `n` è un numero intero, cioè n ∈ ℤ. Consideriamo il caso più
     // semplice in cui n >= 0.  
     // Il ciclo `for` eseguirà esattamente `n` iterazioni, cioè per i
-    // valori di `i` nell’intervallo [0, n), chiuso a sinistra e aperto
+    // valori di `i` nell'intervallo [0, n), chiuso a sinistra e aperto
     // a destra. In ℤ ciò equivale a [0, n - 1], la cui cardinalità è:
     // `(n - 1) - 0 + 1 = n`.
-    // Scrivere l’intervallo come [0, n) ci permette di capire subito
+    // Scrivere l'intervallo come [0, n) ci permette di capire subito
     // la cardinalità e quindi che il `for` viene eseguito `n - 0 = n`
     // volte.
     //
@@ -34,10 +34,10 @@ int main() {
     // for (int i = x; i < y; i++) { ... }
     // ```
     // con due numeri `x` e `y`, dove `y >= x`. In questo caso `i`
-    // appartiene all’intervallo [x, y), e il ciclo viene eseguito per
+    // appartiene all'intervallo [x, y), e il ciclo viene eseguito per
     // `y - x` iterazioni, con `i` in `{x, x + 1, x + 2, ..., y - 1}`.
     //
-    // Tornando all’esercizio, stampiamo `i` ad ogni iterazione.
+    // Tornando all'esercizio, stampiamo `i` ad ogni iterazione.
     // `i` assumerà i valori {0, 1, 2, ..., n - 1}.
 
     for (int i = 0; i < n; i++) {
@@ -67,7 +67,7 @@ int main() {
 
 
 // (1)
-// L’equivalenza tra `for` e `while` può essere rappresentata così
+// L'equivalenza tra `for` e `while` può essere rappresentata così
 // (tralasciando il caso delle istruzioni `continue`: in un `for`,
 // dopo una `continue` viene comunque eseguita `expression`, mentre
 // nel `while` ciò non accade):
@@ -148,7 +148,7 @@ int main() {
 //     statement;                  --->        statement;
 // }                               --->    }
 //
-// Dove si può notare come nel `for` si omettono l’inizializzazione e l’espressione 
+// Dove si può notare come nel `for` si omettono l'inizializzazione e l'espressione 
 // finale (in quanto il linguaggio lo consente)
 // Esempio di equivalenza:
 //

@@ -80,7 +80,7 @@ int main() {
                         // dal linguaggio. Esistono compilatori che potrebbero
                         // allocare le variabili in ordine diverso. Tuttavia, questo
                         // è *trasparente per il programmatore* (*) e rimane un dettaglio
-                        // d’implementazione del compilatore.
+                        // d'implementazione del compilatore.
 
                         
                         // (*)    Trasparente per il programmatore significa che un 
