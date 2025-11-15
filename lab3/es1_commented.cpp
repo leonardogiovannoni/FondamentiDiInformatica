@@ -2,19 +2,17 @@
 using namespace std;
 
 void stampa_quadrato_cavo_con_diagonale(int n) {    
-    // Iteriamo su tutte le coppie (r, c) che definiscono le coordinate
-    // di un quadrato pieno di lato `n`, ossia sull'insieme 
-    // {(r, c) ∈ ℕ × ℕ : r ∈ [0, n) ∧ c ∈ [0, n)}.
-    // L'iterazione procede in ordine crescente (da 0 incluso a `n` escluso)
-    // perché così le righe (r) e le colonne (c) vengono stampate nello
-    // stesso ordine naturale in cui l'output viene visualizzato sullo
-    // schermo: dall'alto verso il basso e da sinistra a destra.
-    // A titolo di esempio, un'inversione dell'ordine (quindi partendo 
-    // da n − 1 e arrivando a 0, entrambi inclusi, ovvero 
-    // `for (int x = n - 1; x >= 0; x--)`) invertirebbe la direzione di 
-    // stampa e produrrebbe il quadrato specchiato rispetto all'asse 
-    // orizzontale (invertendo `r`) o rispetto all'asse verticale 
-    // (invertendo `c`).
+    // Iteriamo su tutte le coppie (r, c) che definiscono le coordinate di un
+    // quadrato pieno di lato `n`, ossia sull'insieme
+    // {(r, c) ∈ ℕ × ℕ : r ∈ [0, n) ∧ c ∈ [0, n)}. 
+    // L'iterazione procede in ordine crescente (da 0 incluso a `n` escluso) perché 
+    // così le righe (r) e le colonne (c) vengono stampate nello stesso ordine 
+    // naturale in cui l'output viene visualizzato sullo schermo: 
+    // dall'alto verso il basso e da sinistra a destra. A titolo di esempio,
+    // un'inversione dell'ordine (quindi partendo da n − 1 e arrivando a 0, entrambi
+    // inclusi, ovvero `for (int x = n - 1; x >= 0; x--)`) invertirebbe la direzione
+    // di stampa e produrrebbe il quadrato specchiato rispetto all'asse orizzontale
+    // (invertendo `r`) o rispetto all'asse verticale (invertendo `c`).
 
     // Iterando dunque in modo crescente su righe e colonne in questa maniera:
     // ```
@@ -25,9 +23,9 @@ void stampa_quadrato_cavo_con_diagonale(int n) {
     //     cout << endl; // andiamo a capo alla fine di ogni riga
     // }
     // ```
-    // la posizione del carattere stampato nello standard output
-    // corrisponde direttamente alla posizione logica della cella
-    // identificata dagli indici (r, c) nella seguente tabella:
+    // la posizione del carattere stampato nello standard output corrisponde
+    // direttamente alla posizione logica della cella identificata dagli indici (r,
+    // c) nella seguente tabella:
 
     // Indici della matrice:
     //
@@ -51,9 +49,8 @@ void stampa_quadrato_cavo_con_diagonale(int n) {
                                                    // che parte da (r=  0,c=  0)
                                                    // e arriva in  (r=n-1,c=n-1)
 
-            // Combiniamo le condizioni con l'operatore logico OR, 
-            // poiché dobbiamo stampare un asterisco quando almeno 
-            // una di esse risulta vera.
+            // Combiniamo le condizioni con l'operatore logico OR, poiché dobbiamo
+            // stampare un asterisco quando almeno una di esse risulta vera.
             bool pieno =   bordo_top 
                         || bordo_bottom 
                         || bordo_sx 
@@ -69,8 +66,9 @@ void stampa_quadrato_cavo_con_diagonale(int n) {
         cout << endl;
     }
 
-    // Supponiamo di avere n = 5. La tabella seguente mostra le coordinate (r, c)
-    // che identificano ciascuna cella del quadrato logico percorso dai due cicli annidati:
+    // Supponiamo di avere n = 5. La tabella seguente mostra le coordinate (r, c) che
+    // identificano ciascuna cella del quadrato logico percorso dai due cicli
+    // annidati:
     //
     //            c=0            c=1            c=2            c=3            c=4
     //     ┌────────────────────────────────────────────────────────────────────────
@@ -80,8 +78,8 @@ void stampa_quadrato_cavo_con_diagonale(int n) {
     // r=3 │   (r=3,c=0)      (r=3,c=1)      (r=3,c=2)      (r=3,c=3)      (r=3,c=4)
     // r=4 │   (r=4,c=0)      (r=4,c=1)      (r=4,c=2)      (r=4,c=3)      (r=4,c=4)
     //
-    // Ogni condizione logica (bordo o diagonale) seleziona un sottoinsieme specifico di 
-    // celle, che corrisponde a una parte visiva del quadrato stampato.
+    // Ogni condizione logica (bordo o diagonale) seleziona un sottoinsieme specifico
+    // di celle, che corrisponde a una parte visiva del quadrato stampato.
 
 
     // 1)  bordo_top (r == 0)       → prima riga
@@ -135,9 +133,9 @@ void stampa_quadrato_cavo_con_diagonale(int n) {
 
 
 
-    // Combinando le condizioni mediante l'operatore logico OR, 
-    // otteniamo l'insieme di coordinate in cui viene stampato un asterisco,
-    // ossia quando almeno una condizione di bordo o diagonale è vera:
+    // Combinando le condizioni mediante l'operatore logico OR, otteniamo l'insieme di
+    // coordinate in cui viene stampato un asterisco, ossia quando almeno una
+    // condizione di bordo o diagonale è vera:
     //
     //            c=0            c=1            c=2            c=3            c=4
     //     ┌────────────────────────────────────────────────────────────────────────

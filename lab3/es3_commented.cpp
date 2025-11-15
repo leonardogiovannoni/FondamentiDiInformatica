@@ -47,7 +47,8 @@ void risolvi_equazione(double a, double b, double c) {
             // Δ > 0 → Due soluzioni reali e distinte
             // Formula: x = (-b ± √Δ) / (2a)
             
-            double sqrt_delta = sqrt(delta); // Calcola √Δ una sola volta per efficienza
+            // Calcola √Δ una sola volta per efficienza
+            double sqrt_delta = sqrt(delta);
             double x1 = (-b + sqrt_delta) / (2 * a); // Prima soluzione
             double x2 = (-b - sqrt_delta) / (2 * a); // Seconda soluzione
             
@@ -64,7 +65,7 @@ void risolvi_equazione(double a, double b, double c) {
             cout << "x = " << x << endl;
             
         } else {
-            // Δ < 0 → Nessuna soluzione reale (soluzioni complesse coniugate)
+            // Δ < 0 → Nessuna soluzione reale (soluzioni complesse coniugate).
             // In questo programma non gestiamo i numeri complessi
             cout << "Nessuna soluzione reale (discriminante negativo)." << endl;
         }

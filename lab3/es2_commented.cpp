@@ -2,19 +2,18 @@
 using namespace std;
 
 
-// Nelle figure (che rappresentano gli stack frame rispettivamente di `main`
-// e della funzione `f*` chiamata da `main`) indichiamo con un numero tra parentesi
-// le posizioni nel codice a cui si riferiscono, quindi nel caso di
+// Nelle figure (che rappresentano gli stack frame rispettivamente di `main` e della
+// funzione `f*` chiamata da `main`) indichiamo con un numero tra parentesi le
+// posizioni nel codice a cui si riferiscono, quindi nel caso di
 // ```
 // int a = 10;
 // // (1)
 // a = a * 2; 
 // ```
-// stiamo indicando con (1) lo stato della memoria subito dopo
-// `int a = 10;` e subito prima di `a = a * 2;`.
-// Con `(*)`, `(**)` e `(***)` indichiamo invece
-// delle posizioni nel `main`, per mostrare l'effetto delle
-// chiamate alle funzioni una volta ritornate.
+// stiamo indicando con (1) lo stato della memoria subito dopo `int a = 10;` e subito
+// prima di `a = a * 2;`. Con `(*)`, `(**)` e `(***)` indichiamo invece delle
+// posizioni nel `main`, per mostrare l'effetto delle chiamate alle funzioni una
+// volta ritornate.
 
 //
 // (1)                                              (2)
@@ -23,7 +22,7 @@ using namespace std;
 // │                                  │             │                                  │
 // │ Stack frame: f1                  │             │ Stack frame: f1                  │
 // │ ┌───────────────┐                │             │ ┌───────────────┐                │
-// │ │ x = 10        │ <─ copia di 'a'              │ │ x = 20        │                │
+// │ │ x = 10        │ <─ copia di 'a'│             │ │ x = 20        │                │
 // │ └───────────────┘                │             │ └───────────────┘                │   
 // │                                  │             │                                  │   
 // └──────────────────────────────────┘             └──────────────────────────────────┘
@@ -54,8 +53,7 @@ using namespace std;
 //
 
 
-// il valore della variabile `a` è letto e copiato
-// nella nuova variabile `x`
+// il valore della variabile `a` è letto e copiato nella nuova variabile `x`
 void f1(int x) {
     // (1)
     x = x * 2;
@@ -70,7 +68,7 @@ void f1(int x) {
 // │                                  │             │                                  │
 // │ Stack frame: f2                  │             │ Stack frame: f2                  │
 // │ ┌───────────────┐                │             │ ┌───────────────┐                │
-// │ │ x = 10        │ <─ copia di 'a'              │ │ x = 20        │                │
+// │ │ x = 10        │ <─ copia di 'a'│             │ │ x = 20        │                │
 // │ └───────────────┘                │             │ └───────────────┘                │   
 // │                                  │             │                                  │   
 // └──────────────────────────────────┘             └──────────────────────────────────┘   
@@ -102,9 +100,8 @@ void f1(int x) {
 
 
 
-// il valore della variabile `a` è letto e copiato
-// nella nuova variabile `x`, che viene ritornato
-// e può, per esempio, essere riassegnato ad `a`
+// il valore della variabile `a` è letto e copiato nella nuova variabile `x`, che
+// viene ritornato e può, per esempio, essere riassegnato ad `a`
 int f2(int x) {
     // (1)
     x = x * 2;
@@ -112,13 +109,11 @@ int f2(int x) {
     return x;
 }
 
-// Indichiamo informalmente con `ref` il fatto che
-// una variabile è un riferimento a un'altra variabile.
-// Usiamo la stessa convenzione del lab1, quindi indichiamo con (tmp)
-// il fatto che il compilatore abbia riservato lo spazio per la
-// variabile `tmp`, ma che `tmp` non sia ancora stata definita.
-// La variabile di appoggio `tmp` è utilizzata per mostrare meglio
-// le operazioni che avvengono nella funzione.
+// Indichiamo informalmente con `ref` il fatto che una variabile è un riferimento a
+// un'altra variabile. Usiamo la stessa convenzione del lab1, quindi indichiamo con
+// (tmp) il fatto che il compilatore abbia riservato lo spazio per la variabile
+// `tmp`, ma che `tmp` non sia ancora stata definita. La variabile di appoggio `tmp`
+// è utilizzata per mostrare meglio le operazioni che avvengono nella funzione.
 
 // (1)                                              (2)
 // ↑ indirizzi bassi                                ↑ indirizzi bassi
@@ -174,10 +169,10 @@ int f2(int x) {
 
 
 
-// Il riferimento è, secondo lo standard del C++, un alias a una variabile
-// ovvero un altro nome per la variabile. In questo caso, questo significa
-// che `x` è "un altro nome" per `a`, definizione che lo standard usa per
-// essere il più generale possibile.
+// Il riferimento è, secondo lo standard del C++, un alias a una variabile ovvero un
+// altro nome per la variabile. In questo caso, questo significa che `x` è "un altro
+// nome" per `a`, definizione che lo standard usa per essere il più generale
+// possibile.
 void f3(int &x) {
     // (1)
     // (* qui si legge il valore di `a`

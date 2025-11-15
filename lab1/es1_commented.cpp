@@ -33,29 +33,29 @@ using namespace std;
 
 int main() {
 
-                        // Le variabili a e b vengono inizializzate a 0 al punto (1).
-                        // Anche se in questo caso non è strettamente necessario,
-                        // poiché verranno sovrascritte dai valori letti in input ai
-                        // punti (2) e (3), è buona pratica inizializzare sempre le
-                        // variabili. Se non venissero inizializzate e fossero lette
-                        // prima di essere sovrascritte (ad esempio stampandone il
-                        // valore, come in un programma del tipo:
+                        // Le variabili a e b vengono inizializzate a 0 al punto (1). Anche
+                        // se in questo caso non è strettamente necessario, poiché
+                        // verranno sovrascritte dai valori letti in input ai punti (2) e
+                        // (3), è buona pratica inizializzare sempre le variabili. Se non
+                        // venissero inizializzate e fossero lette prima di essere
+                        // sovrascritte (ad esempio stampandone il valore, come in un
+                        // programma del tipo:
                         // ```
                         //   int main() { int a; cout << a; }
                         // ```
-                        // ), il contenuto sarebbe indefinito. Potremmo ottenere in
-                        // output qualunque valore intero, rendendo il comportamento
-                        // del programma imprevedibile.
+                        // ), il contenuto sarebbe indefinito. Potremmo ottenere in output
+                        // qualunque valore intero, rendendo il comportamento del
+                        // programma imprevedibile.
 
                         // La figura sotto è un esempio di cosa contiene la memoria in
-                        // corrispondenza delle variabili: a sinistra dei due punti c'è
-                        // il nome della variabile, a destra il valore contenuto nella
+                        // corrispondenza delle variabili: a sinistra dei due punti c'è il
+                        // nome della variabile, a destra il valore contenuto nella
                         // variabile.
                         
-                        // Quando una variabile non è ancora stata definita, la locazione
-                        // di memoria “esiste” (il compilatore riserva lo spazio per essa
+                        // Quando una variabile non è ancora stata definita, la locazione di
+                        // memoria "esiste" (il compilatore riserva lo spazio per essa
                         // all'inizio della funzione main), ma non è ancora associata alla
-                        // variabile, la quale non esiste ancora (non essendo, ancora, 
+                        // variabile, la quale non esiste ancora (non essendo, ancora,
                         // definita).
                         
                         // Per questo la indichiamo con il nome tra parentesi tonde, a
@@ -64,30 +64,29 @@ int main() {
                         // definita, non è ancora accessibile.
                         
                         // Poiché la variabile non è ancora stata definita (e quindi
-                        // neppure inizializzata), il valore della locazione è casuale.
-                        // In questo esempio scegliamo tre valori arbitrari per
-                        // illustrare il concetto.
+                        // neppure inizializzata), il valore della locazione è casuale. In
+                        // questo esempio scegliamo tre valori arbitrari per illustrare il
+                        // concetto.
                     
-                        // Nella rappresentazione seguente, gli indirizzi di memoria
-                        // sono in ordine crescente dall'alto verso il basso. Come
-                        // visto a lezione, lo stack cresce verso indirizzi di memoria
-                        // più bassi. Le variabili locali sono allocate in ordine
-                        // inverso rispetto alla loro definizione nel codice sorgente:
-                        // l'ultima variabile definita viene allocata all'indirizzo
-                        // più basso.
+                        // Nella rappresentazione seguente, gli indirizzi di memoria sono in
+                        // ordine crescente dall'alto verso il basso. Come visto a lezione,
+                        // lo stack cresce verso indirizzi di memoria più bassi. Le
+                        // variabili locali sono allocate in ordine inverso rispetto alla
+                        // loro definizione nel codice sorgente: l'ultima variabile
+                        // definita viene allocata all'indirizzo più basso.
 
-                        // Questa osservazione vale nella pratica, ma non è garantita
-                        // dal linguaggio. Esistono compilatori che potrebbero
-                        // allocare le variabili in ordine diverso. Tuttavia, questo
-                        // è *trasparente per il programmatore* (*) e rimane un dettaglio
+                        // Questa osservazione vale nella pratica, ma non è garantita dal
+                        // linguaggio. Esistono compilatori che potrebbero allocare le
+                        // variabili in ordine diverso. Tuttavia, questo è *trasparente
+                        // per il programmatore* (*) e rimane un dettaglio
                         // d'implementazione del compilatore.
 
                         
-                        // (*)    Trasparente per il programmatore significa che un 
-                        //        certo meccanismo o servizio opera automaticamente, 
-                        //        senza richiedere interventi o conoscenze specifiche 
-                        //        da parte del programmatore, mantenendo invariato il 
-                        //        comportamento logico del programma.
+                        // (*)    Trasparente per il programmatore significa che un certo
+                        //        meccanismo o servizio opera automaticamente, senza
+                        //        richiedere interventi o conoscenze specifiche da parte
+                        //        del programmatore, mantenendo invariato il comportamento
+                        //        logico del programma.
                       
 
                         //      STACK (frame di main)

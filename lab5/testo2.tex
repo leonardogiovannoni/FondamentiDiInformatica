@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{minted}
+
+% Stile per il codice C++
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=10pt,
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false,
+    frame=single,
+    breaklines=true,
+    breakatwhitespace=true,
+    captionpos=b
+}
+
+\title{Esercizio: Inversione di un array}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\section*{Testo dell'esercizio}
+
+Scrivi un programma in linguaggio \textbf{C++} che:
+
+\begin{itemize}
+    \item dichiari un array di dimensione fissa \( N = 5 \);
+    \item legga da tastiera \( N \) numeri interi e li memorizzi nell'array;
+    \item stampi a video il contenuto originale dell'array;
+    \item inverta l'ordine degli elementi dell'array;
+    \item stampi a video l'array invertito.
+\end{itemize}
+La funzione avrà una firma simile alla seguente:
+\begin{minted}{cpp}
+void inverti(int arr[], int n);
+\end{minted}
+
+\section*{Esempio}
+
+\noindent\textbf{Input:}
+\begin{verbatim}
+Inserisci 5 numeri interi:
+1 2 3 4 5
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Array: 1 2 3 4 5 
+Array invertito: 5 4 3 2 1
+\end{verbatim}
+
+
+
+\end{document}
+

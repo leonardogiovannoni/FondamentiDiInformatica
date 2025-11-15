@@ -1,0 +1,66 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+
+% Stile per il codice C++
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=10pt,
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false,
+    frame=single,
+    breaklines=true,
+    breakatwhitespace=true,
+    captionpos=b
+}
+
+\title{Esercizio: Somma dei numeri da 0 a n (ricorsione)}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\section*{Testo dell'esercizio}
+
+Scrivi un programma in linguaggio \textbf{C++} che:
+
+\begin{itemize}
+    \item chieda all'utente di inserire un numero intero positivo \( n \);
+    \item calcoli, utilizzando una \textbf{funzione ricorsiva}, la somma dei numeri da \( 0 \) a \( n \), estremi inclusi;
+    \item stampi a video il risultato ottenuto.
+\end{itemize}
+
+\section*{Esempio}
+
+\noindent\textbf{Input:}
+\begin{verbatim}
+Inserisci un numero intero positivo: 5
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+La somma dei numeri da 0 a 5 è: 15
+\end{verbatim}
+
+
+
+\end{document}
+

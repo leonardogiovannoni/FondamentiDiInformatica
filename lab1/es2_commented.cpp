@@ -36,12 +36,11 @@ using namespace std;
 
 int main() {
 
-                        // Esempio dello stato (astratto) della memoria.
-                        // A sinistra è riportato il nome della variabile (oppure il
-                        // "nome" tra parentesi se la variabile non è ancora definita).
-                        // A destra si trova il valore contenuto nella variabile.
-                        // I valori mostrati quando la variabile non è ancora
-                        // inizializzata sono casuali.
+                        // Esempio dello stato (astratto) della memoria. A sinistra è
+                        // riportato il nome della variabile (oppure il "nome" tra
+                        // parentesi se la variabile non è ancora definita). A destra si
+                        // trova il valore contenuto nella variabile. I valori mostrati
+                        // quando la variabile non è ancora inizializzata sono casuali.
 
                         //      STACK (frame di main)
                         //  ┌───────────────────────────┐
@@ -63,8 +62,8 @@ int main() {
                         // problemi se una variabile non inizializzata viene scritta da
                         // `cin`. Tuttavia, ciò non è sempre garantito: `cin` può fallire
                         // (ad esempio se l'utente inserisce un valore non numerico) e, in
-                        // tal caso, l'output potrebbe dipendere da due valori di `a` e `b`
-                        // indeterminati.
+                        // tal caso, l'output potrebbe dipendere da due valori di `a` e
+                        // `b` indeterminati.
                         
                         // Dal prossimo esercizio in poi inizializzeremo sempre ogni
                         // variabile al momento della definizione.
@@ -83,14 +82,13 @@ int main() {
                         //  │  a  :         17          │
                         //  └───────────────────────────┘
 
-    // Valutazione della condizione `a >= b`:
-    // Con i valori d'esempio (17 e 12) l'espressione risulta vera, quindi
-    // il flusso entra nel ramo "Sì" e stampa `a` come massimo. In caso
-    // contrario, entrerebbe nel ramo "No" e stamperebbe `b`.
+    // Valutazione della condizione `a >= b`: Con i valori d'esempio (17 e 12)
+    // l'espressione risulta vera, quindi il flusso entra nel ramo "Sì" e stampa `a`
+    // come massimo. In caso contrario, entrerebbe nel ramo "No" e stamperebbe `b`.
     //
-    // Notare che l'operatore `>=` gestisce anche il caso di uguaglianza:
-    // se `a == b`, il programma considera `a` come massimo e lo stampa
-    // (equivalente a stampare `b`, poiché i valori coincidono).
+    // Notare che l'operatore `>=` gestisce anche il caso di uguaglianza: se `a ==
+    // b`, il programma considera `a` come massimo e lo stampa (equivalente a stampare
+    // `b`, poiché i valori coincidono).
 
     if (a >= b) {
         cout << "Il massimo è a: " << a << endl;   // Ramo "Sì"
