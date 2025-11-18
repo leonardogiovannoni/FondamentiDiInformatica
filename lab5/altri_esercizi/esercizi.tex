@@ -1,0 +1,102 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{hyperref}
+\geometry{margin=2.5cm}
+\setlength{\parindent}{0pt}
+
+\title{Esercizi di Programmazione (C++) — Ricorsione}
+\author{}
+\date{}
+
+
+\begin{document}
+\maketitle
+\setlist[itemize]{noitemsep, topsep=4pt}
+
+\section{Calcolo del fattoriale}
+\textbf{Testo.} Scrivi una funzione ricorsiva che calcola il \textbf{fattoriale} di un numero intero non negativo $n$.  
+Per definizione:
+\[
+f(n) =
+\begin{cases}
+1 & \text{se } n = 0, \\
+n \cdot f(n-1) & \text{se } n > 0.
+\end{cases}
+\]
+Il programma deve leggere un numero intero positivo e stampare il suo fattoriale.
+
+\subsection*{Esempio di esecuzione.}
+\noindent\textbf{Input:}
+\begin{verbatim}
+5
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Il fattoriale di 5 e': 120
+\end{verbatim}
+
+\section{Conta dei numeri positivi}
+\textbf{Testo.} Leggi 8 numeri interi in un array e scrivi una funzione ricorsiva che conta quanti elementi sono \textbf{strettamente positivi}.  
+
+
+\subsection*{Esempio di esecuzione.}
+\noindent\textbf{Input:}
+\begin{verbatim}
+3 -1 7 0 4 -5 2 8
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Ci sono 5 numeri positivi.
+\end{verbatim}
+
+\section{Massimo elemento di un array}
+\textbf{Testo.} Scrivi una funzione ricorsiva che calcola il \textbf{valore massimo} all'interno di un array di interi positivi.  
+
+\subsection*{Esempio di esecuzione.}
+\noindent\textbf{Input:}
+\begin{verbatim}
+4 9 2 7 1 5
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Il valore massimo e': 9
+\end{verbatim}
+
+\section{Ricerca di un valore nell'array}
+\textbf{Testo.} Scrivi una funzione ricorsiva che stabilisce se un dato valore $x$ è \textbf{presente} in un array di interi.  
+
+\subsection*{Esempio di esecuzione.}
+\noindent\textbf{Input:}
+\begin{verbatim}
+3 7 1 9 2 6 4
+9
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+9 e' presente nell'array.
+\end{verbatim}
+
+\section{Inversione di un array}
+\textbf{Testo.} Scrivi un programma che inverte un array usando una funzione ricorsiva.  
+
+\subsection*{Esempio di esecuzione.}
+\noindent\textbf{Input:}
+\begin{verbatim}
+1 2 3 4 5 6 7 8
+\end{verbatim}
+
+\noindent\textbf{Output:}
+\begin{verbatim}
+Array invertito: 8 7 6 5 4 3 2 1
+\end{verbatim}
+
+\end{document}
+
