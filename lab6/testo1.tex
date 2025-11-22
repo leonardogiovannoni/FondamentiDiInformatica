@@ -1,0 +1,145 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{minted}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage{xparse}
+
+\ExplSyntaxOn
+\RenewDocumentCommand{\texttt}{m}
+ {
+  \tl_set:Nn \l_nemgathos_upquotes_tl { #1 }
+  \tl_replace_all:Nnn \l_nemgathos_upquotes_tl { '' } { \textquotedbl }
+  \tl_replace_all:Nnn \l_nemgathos_upquotes_tl { `` } { \textquotedbl }
+  \tl_replace_all:Nnn \l_nemgathos_upquotes_tl { ' } { \textquotesingle }
+  \tl_replace_all:Nnn \l_nemgathos_upquotes_tl { ` } { \textquotesingle }
+  { \ttfamily \tl_use:N \l_nemgathos_upquotes_tl }
+ }
+\tl_new:N \l_nemgathos_upquotes_tl
+\ExplSyntaxOff
+\geometry{margin=0.5cm}
+
+% Stile per il codice C++
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=10pt,
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false,
+    frame=single,
+    breaklines=true,
+    breakatwhitespace=true,
+    captionpos=b
+}
+
+\title{Esercizio: Manipolazione di stringhe in C++}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+% ============================================================
+\section*{Parte A: Implementazione \texttt{my\_strcpy}}
+
+Scrivi un programma in linguaggio \textbf{C++} che:
+
+\begin{itemize}
+    \item dichiari due array di caratteri di lunghezza prefissata 51;
+    \item legga da tastiera una stringa e la memorizzi nel primo array;
+    \item visualizzi la stringa;
+    \item utilizzi una funzione \texttt{my\_strcpy} per copiare il contenuto della stringa nel secondo array;
+    \item stampi la stringa contenuta nel secondo array sia prima che dopo la copia.
+\end{itemize}
+
+La funzione da implementare è la seguente, dove il valore ritornato è \texttt{dst}:
+
+\begin{minted}{cpp}
+char *my_strcpy(char dst[], const char src[]);
+\end{minted}
+
+\section*{Esempio}
+
+%\begin{multicols}{2}
+\noindent\textbf{Input:}
+\begin{minted}{text}
+abc
+\end{minted}
+
+\noindent\textbf{Output:}
+\begin{minted}{text}
+str1: abc 
+str2 PRIMA: 
+str2 DOPO: abc 
+\end{minted}
+%\end{multicols}
+
+\vspace{2em}
+
+% ============================================================
+\section*{Parte B: Verifica di stringa composta da solo lettere maiuscole o cifre}
+
+Estendi il programma precedente introducendo una funzione che verifichi se una stringa è composta esclusivamente da:
+
+\begin{itemize}
+    \item lettere dell'alfabeto inglese in \textbf{maiuscolo} (da \texttt{'A'} a \texttt{'Z'});
+    \item cifre numeriche decimali (da \texttt{'0'} a \texttt{'9'}).
+\end{itemize}
+La funzione deve restituire \texttt{true} se tutti i caratteri della stringa rispettano tali condizioni, \texttt{false} altrimenti.
+La funzione da implementare è:
+
+\begin{minted}{cpp}
+bool is_alpha_maiusc_or_numeric(const char str[]);
+\end{minted}
+
+\section*{Esempio}
+
+\begin{multicols}{2}
+\noindent\textbf{Input:}
+\begin{minted}{text}
+ABC123
+\end{minted}
+
+\noindent\textbf{Output:}
+\begin{minted}{text}
+str1: ABC123
+str2 PRIMA: 
+str2 DOPO: ABC123
+OK
+\end{minted}
+
+\columnbreak
+
+\noindent\textbf{Input:}
+\begin{minted}{text}
+AbC!12
+\end{minted}
+
+\noindent\textbf{Output:}
+\begin{minted}{text}
+str1: AbC!12 
+str2 PRIMA: 
+str2 DOPO: AbC!12
+NO
+\end{minted}
+\end{multicols}
+
+\end{document}
+
