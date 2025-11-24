@@ -1,0 +1,264 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{textcomp}
+\usepackage{xparse}
+
+%\ExplSyntaxOn
+%\RenewDocumentCommand{\texttt}{m}
+% {
+%  \tl_set:Nn \l_nemgathos_upquotes_tl { #1 }
+%  \tl_replace_all:Nnn \l_nemgathos_upquotes_tl { '' } { \textquotedbl }
+%  \tl_replace_all:Nnn \l_nemgathos_upquotes_tl { `` } { \textquotedbl }
+%  \tl_replace_all:Nnn \l_nemgathos_upquotes_tl { ' } { \textquotesingle }
+%  \tl_replace_all:Nnn \l_nemgathos_upquotes_tl { ` } { \textquotesingle }
+%  { \ttfamily \tl_use:N \l_nemgathos_upquotes_tl }
+% }
+%\tl_new:N \l_nemgathos_upquotes_tl
+%\ExplSyntaxOff
+\geometry{margin=2.5cm}
+\setlength{\parindent}{0pt}
+
+\title{Esercizi di Programmazione (C++): Array, Cstring e Matrici}
+\author{}
+% insert no date
+\date{}
+
+\begin{document}
+\maketitle
+\setlist[itemize]{noitemsep, topsep=4pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Implementazione della funzione \texttt{my\_strlen}}
+\textbf{Testo.}  
+Scrivi una funzione:
+\begin{minted}{cpp}
+int my_strlen(const char s[]);
+\end{minted}
+che calcola la \textbf{lunghezza} di una stringa C-style senza usare la libreria standard.
+
+Nel \texttt{main}:
+\begin{itemize}
+    \item dichiara un array \texttt{str} di capacità 51;
+    \item leggi una stringa da input;
+    \item calcola la lunghezza usando \texttt{my\_strlen};
+    \item stampa la lunghezza calcolata.
+\end{itemize}
+
+\subsection*{Esempi di esecuzione.}
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Esempio 1}\\
+\textbf{Input:}
+\begin{verbatim}
+ciao
+\end{verbatim}
+\textbf{Output:}
+\begin{verbatim}
+Lunghezza: 4
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Esempio 2}\\
+\textbf{Input:}
+\begin{verbatim}
+programmazione
+\end{verbatim}
+\textbf{Output:}
+\begin{verbatim}
+Lunghezza: 14
+\end{verbatim}
+\end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Copia dei soli caratteri alfabetici}
+\textbf{Testo.}  
+Scrivi una funzione:
+\begin{minted}{cpp}
+void filtra_alfabetici(char dst[], int dst_capacity, const char src[]);
+\end{minted}
+che copia in \texttt{dst} soltanto i caratteri alfabetici (\texttt{A--Z}, \texttt{a--z}) contenuti in \texttt{src}, rispettando la capacità \texttt{capacity}.
+
+Nel \texttt{main}:
+\begin{itemize}
+    \item leggi una stringa in \texttt{str1} (capacità 10),
+    \item dichiara \texttt{str2} (capacità 100),
+    \item chiama \texttt{filtra\_alfabetici(str2, 10, str1)},
+    \item stampa il risultato.
+\end{itemize}
+
+\subsection*{Esempi di esecuzione.}
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Esempio 1}\\
+\textbf{Input:}
+\begin{verbatim}
+C++17_e'_potente!
+\end{verbatim}
+\textbf{Output:}
+\begin{verbatim}
+Cepotente
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Esempio 2}\\
+\textbf{Input:}
+\begin{verbatim}
+Hello123World!
+\end{verbatim}
+\textbf{Output:}
+\begin{verbatim}
+HelloWorl
+\end{verbatim}
+\end{minipage}
+\newline \newline
+\textit{Nota: la capacità di \texttt{str2} è 10, quindi l'output contiene al massimo 9 caratteri più il terminatore nullo, per cui "HelloWorld" diventa "HelloWorl".}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Somma degli elementi per riga in una matrice lineare}
+\textbf{Testo.}  
+Implementa una funzione:
+\begin{minted}{cpp}
+int somma_riga(const int *m, int cols, int rows, int r);
+\end{minted}
+che somma gli elementi della riga indicata.
+Nel \texttt{main}:
+\begin{itemize}
+    \item leggi una matrice $4 \times 5$ in una matrice;
+    \item per ogni riga, stampa la relativa somma.
+\end{itemize}
+
+\subsection*{Esempio di esecuzione.}
+
+\noindent
+\textbf{Input:}
+\begin{verbatim}
+1 2 3 4 5
+6 7 8 9 10
+11 12 13 14 15
+16 17 18 19 20
+\end{verbatim}
+
+\textbf{Output:}
+\begin{verbatim}
+Somma riga 0: 15
+Somma riga 1: 40
+Somma riga 2: 65
+Somma riga 3: 90
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Trasposizione di una matrice rettangolare}
+\textbf{Testo.}  
+Scrivi una funzione:
+\begin{minted}{cpp}
+void trasponi(const int *src, int *dst, int rows, int cols);
+\end{minted}
+
+che memorizza in \texttt{dst} la matrice trasposta della matrice \texttt{src}.
+
+La trasposizione soddisfa:
+
+% scrivi la formula matematica compatta della trasposta in latex
+
+\[
+    \left(A^T\right)_{ij} = A_{ji} \qquad \forall A \in \mathbb{Z}^{m,n} \quad 1 \le i \le m, \quad 1 \le j \le n
+\]
+
+\[
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}^T =
+\begin{bmatrix}
+a_{11} & a_{21} & \cdots & a_{m1} \\
+a_{12} & a_{22} & \cdots & a_{m2} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{1n} & a_{2n} & \cdots & a_{mn}
+\end{bmatrix}
+\]
+
+Nel \texttt{main}:
+\begin{itemize}
+    \item leggi una matrice $3 \times 4$;
+    \item trasponila in una matrice $4 \times 3$;
+    \item stampa il risultato.
+\end{itemize}
+
+\subsection*{Esempio di esecuzione.}
+
+\noindent
+\textbf{Input:}
+\begin{verbatim}
+1 2 3 4
+5 6 7 8
+9 10 11 12
+\end{verbatim}
+
+\textbf{Output:}
+\begin{verbatim}
+1 5 9
+2 6 10
+3 7 11
+4 8 12
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Verifica dell'alfabeto italiano (21 lettere)}
+\textbf{Testo.}  
+Scrivi una funzione:
+\begin{minted}{cpp}
+bool is_alfabeto_italiano_21(const char s[]);
+\end{minted}
+che restituisce \texttt{true} solo se la stringa è composta esclusivamente dalle \textbf{21 lettere dell'alfabeto italiano}, maiuscole o minuscole.
+
+Nel \texttt{main}:
+\begin{itemize}
+    \item leggi una stringa di lunghezza massima 50;
+    \item verifica che rispetti l'alfabeto italiano;
+    \item stampa \texttt{OK} oppure \texttt{NO}.
+\end{itemize}
+
+\subsection*{Esempi di esecuzione.}
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Esempio 1}\\
+\textbf{Input:}
+\begin{verbatim}
+casa
+\end{verbatim}
+\textbf{Output:}
+\begin{verbatim}
+OK
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Esempio 2}\\
+\textbf{Input:}
+\begin{verbatim}
+yogurt
+\end{verbatim}
+\textbf{Output:}
+\begin{verbatim}
+NO
+\end{verbatim}
+\end{minipage}
+
+\vspace{0.3cm}
+\noindent
+
+\end{document}
+
