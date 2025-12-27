@@ -5,40 +5,25 @@ import sys
 import shutil
 
 TEMPLATE = r"""
-\documentclass[border=1cm]{standalone}
+#set page(height: auto, width: auto)
 
-\usepackage{fontspec}
-\setmonofont{FreeMono}
-
-\usepackage{minted}
-\usemintedstyle{perldoc}
-
-\begin{document}
-
-\begin{minipage}{%dcm}
-\inputminted[encoding=utf8,breaklines]{cpp}{%s}
-\end{minipage}
-
-\end{document}
+#raw(
+  read("%s"),
+  lang: "cpp",
+)
 """
 
-def count_arrow(file_path):
-    with open(file_path, "r", encoding="utf-8") as f:
-        return f.read().count("→")
-
-def count_arrow_pdf(pdf_path):
-    # Estrae il testo dal pdf con pdftotext
-    txt_path = pdf_path + ".txt"
-    subprocess.run(["pdftotext", pdf_path, txt_path], check=True)
-    with open(txt_path, "r", encoding="utf-8") as f:
-        return f.read().count("→")
-
-def compile_pdf(tex_path, workdir):
-    subprocess.run([
-        "xelatex", "-shell-escape",
-        "-interaction=nonstopmode",
-        tex_path
-    ], cwd=workdir, check=True)
+def compile_pdf(typ_path, workdir):
+    # Compila il file Typst in PDF
+    # read all at typ_path and print
+    with open(typ_path, "r", encoding="utf-8") as f:
+        print("Contenuto del file .typ da compilare:")
+        print(f.read())
+    subprocess.run(
+        ["typst", "compile", typ_path],
+        cwd=workdir,
+        check=True,
+    )
 
 def generate_pdf(cpp_file):
     if not os.path.exists(cpp_file):
@@ -50,39 +35,31 @@ def generate_pdf(cpp_file):
     base_name = os.path.splitext(os.path.basename(cpp_file))[0]
     final_pdf_name = base_name + ".pdf"
 
-    arrow_cpp = count_arrow(cpp_file)
-    print(f"Occorrenze → nel file .cpp: {arrow_cpp}")
-
-    minipage_width = 19  # cm iniziale
 
     with tempfile.TemporaryDirectory() as tempdir:
-        tex_path = os.path.join(tempdir, "output.tex")
+        typ_path = os.path.join(tempdir, "output.typ")
         pdf_path = os.path.join(tempdir, "output.pdf")
 
-        while True:
-            # Genera .tex con minipage aggiornata
-            with open(tex_path, "w", encoding="utf-8") as f:
-                f.write(TEMPLATE % (minipage_width, cpp_abs))
+        # Copia il sorgente C++ nella cartella temporanea
+        cpp_name = os.path.basename(cpp_abs)
+        cpp_temp_path = os.path.join(tempdir, cpp_name)
+        shutil.copyfile(cpp_abs, cpp_temp_path)
 
-            print(f"Compilo con minipage = {minipage_width} cm ...")
+        # Path che Typst vedrà (relativo alla root del progetto = tempdir)
+        cpp_rel = cpp_name
 
-            # Compila
-            compile_pdf(tex_path, tempdir)
+        # Genera il .typ con larghezza aggiornata
+        with open(typ_path, "w", encoding="utf-8") as f:
+            f.write(TEMPLATE % (cpp_rel))
 
-            # Conta le frecce nel pdf
-            arrow_pdf = count_arrow_pdf(pdf_path)
-            print(f"Occorrenze → nel PDF: {arrow_pdf}")
+        # Compila con Typst
+        compile_pdf(typ_path, tempdir)
 
-            if arrow_pdf == arrow_cpp:
-                print("Match ottenuto! Nessuna espansione aggiuntiva.")
-                break
-
-            if arrow_pdf > arrow_cpp:
-                print("Il PDF contiene più → del .cpp → aumento minipage di 1 cm")
-                minipage_width += 1
-            else:
-                print("ERRORE: Il PDF contiene meno → del cpp (non dovrebbe accadere)")
-                break
+        # Typst genera automaticamente output.pdf accanto a output.typ
+        # (stesso basename, estensione .pdf)
+        if not os.path.exists(pdf_path):
+            print("ERRORE: PDF non generato da Typst")
+            return
 
         # Copia il PDF finale nella working directory
         final_path = os.path.join(os.getcwd(), final_pdf_name)
@@ -95,6 +72,6 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Utilizzo: python script.py file.cpp")
         sys.exit(1)
-    
+
     generate_pdf(sys.argv[1])
 

@@ -2,13 +2,13 @@
 using namespace std;
 
 
-// Sia n ∈ ℕ, v = (v_0,...,v_{n-1}) ∈ ℤⁿ. Per 0 ≤ k ≤ n definiamo
+// Sia n ∈ ℕ, v = (v₀,...,vₙ₋₁) ∈ ℤⁿ. Per 0 ≤ k ≤ n definiamo
 // 
 //                     ⎧ 1              se k = 0,
 //                     ⎪
-//          f(v, k) =  ⎨ 0              se k > 0 e v_{k-1} è dispari,
+//          f(v, k) =  ⎨ 0              se k > 0 e vₖ₋₁ è dispari,
 //                     ⎪
-//                     ⎩ f(v, k - 1)    se k > 0 e v_{k-1} è pari.
+//                     ⎩ f(v, k - 1)    se k > 0 e vₖ₋₁ è pari.
 // 
 // 
 
