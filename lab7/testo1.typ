@@ -8,20 +8,20 @@
 #set block(spacing: 0.65em)
 #show list: set block(above: 1.2em, below: 1.2em)
 #set list(spacing: 1.2em)
-#show heading: set block(above: 1.4em, below: 1em)
-#show heading.where(level: 1): it => [
+
+#show title: set block(above: 1.4em, below: 1em)
+#show title: it => [
   #v(1em)
   #align(center)[
-    #set text(size: 21pt, weight: "regular")
+    #set text(size: 23pt, weight: "regular")
     #it.body
   ]
 ]
-
-= Esercizio: Gestione di punti 2D in C++
+#title[Esercizio: Gestione di punti 2D in C++]
 
 #v(1em)
 
-== Parte A: Implementazione di una struttura `Point` e operazioni sui punti
+= Parte A: Implementazione di una struttura `Point` e operazioni sui punti
 
 Scrivi un programma in linguaggio *C++* che:
 
@@ -62,7 +62,7 @@ p1 + p2 = (4, 6)
 
 #v(2em)
 
-== Parte B: Allocazione dinamica di coordinate e costruzione di punti
+= Parte B: Allocazione dinamica di coordinate e costruzione di punti
 
 Estendi il programma precedente introducendo la seguente funzionalità:
 

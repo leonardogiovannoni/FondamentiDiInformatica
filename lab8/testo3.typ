@@ -8,16 +8,15 @@
 #set block(spacing: 0.65em)
 #show list: set block(above: 1.2em, below: 1.2em)
 #set list(spacing: 1.2em)
-#show heading: set block(above: 1.4em, below: 1em)
-#show heading.where(level: 1): it => [
-  #v(4em)
+#show title: set block(above: 1.4em, below: 1em)
+#show title: it => [
+  #v(1em)
   #align(center)[
-    #set text(size: 21pt, weight: "regular")
+    #set text(size: 23pt, weight: "regular")
     #it.body
   ]
 ]
-
-= Esercizio: Stampa di una lista concatenata
+#title[Esercizio: Stampa di una lista concatenata]
 
 #v(6em)
 Scrivi una funzione `pop_front` che gestisca una lista concatenata di interi, permettendo di inserire elementi in testa e di estrarne un certo numero dalla testa stessa.
@@ -47,13 +46,15 @@ cin.clear();
 cin.ignore(10000, '\n');
 ```
 
+#v(10pt)
 == Esempi
-
+#v(10pt)
 #grid(
   columns: (1fr, 1fr),
   column-gutter: 1em,
   [
-    *Esempio 1:*
+    === Esempio 1:
+    #v(10pt)
 
     `Inserisci una sequenza di numeri interi:` #text(fill: orange)[`1 2 3 4 .`]
 
@@ -64,8 +65,8 @@ cin.ignore(10000, '\n');
     `Lista dopo l'estrazione: [2, 1]`
   ],
   [
-    *Esempio 2:*
-
+    === Esempio 2:
+    #v(10pt)
     `Inserisci una sequenza di numeri interi:` #text(fill: orange)[`10 20 30 40 50 .`]
 
     `Lista inserita: [50, 40, 30, 20, 10]`

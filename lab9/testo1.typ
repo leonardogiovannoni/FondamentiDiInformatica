@@ -8,17 +8,17 @@
 #set block(spacing: 0.65em)
 #show list: set block(above: 1.2em, below: 1.2em)
 #set list(spacing: 1.2em)
-#show heading: set block(above: 1.4em, below: 1em)
-#show heading.where(level: 1): it => [
+
+#show title: set block(above: 1.4em, below: 1em)
+#show title: it => [
   #v(1em)
   #align(center)[
-    #set text(size: 21pt, weight: "regular")
+    #set text(size: 23pt, weight: "regular")
     #it.body
   ]
 ]
-
-= Esercizio: Lista Colorata
-== Prova scritta 14-02-2024
+#title[Esercizio: Lista Colorata]
+= Prova scritta 14-02-2024
 
 Una `ListaColorata` ha un nome e contiene elementi aventi come informazione un colore. Il nome è una
 stringa di caratteri di dimensione inferiore o uguale a 30. I possibili colori sono verde, azzurro e giallo. Le

@@ -15,16 +15,17 @@
 #show enum: set block(above: 1.2em, below: 1.2em)
 #set enum(spacing: 1.2em)
 
-#show heading: set block(above: 1.4em, below: 1em)
-#show heading.where(level: 1): it => [
-  #v(4em)
+
+#show title: set block(above: 1.4em, below: 1em)
+#show title: it => [
+  #v(1em)
   #align(center)[
-    #set text(size: 21pt, weight: "regular")
+    #set text(size: 23pt, weight: "regular")
     #it.body
   ]
 ]
 
-= Esercizio: Risoluzione di un'equazione di secondo grado
+#title[Esercizio: Risoluzione di un'equazione di secondo grado]
 
 #v(7em)
 

@@ -2,13 +2,13 @@
 using namespace std;
 
 
-// Sia n ∈ ℕ, v = (v_0,...,v_{n-1}) ∈ ℤⁿ. Per 0 ≤ k ≤ n definiamo
+// Sia n ∈ ℕ, v = (v₀,...,vₙ₋₁) ∈ ℤⁿ. Per 0 ≤ k ≤ n definiamo
 // 
 //                     ⎧ -1                             se k = 0
 //                     ⎪ 
-//          f(v, k) =  ⎨ v_0                            se k = 1
+//          f(v, k) =  ⎨ v₀                             se k = 1
 //                     ⎪ 
-//                     ⎩ max(v_{k-1}, f(v, k - 1))      se k > 1
+//                     ⎩ max(vₖ₋₁, f(v, k - 1))         se k > 1
 // 
 // 
 // massimo(v, n) = f(v, n)

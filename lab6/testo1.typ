@@ -15,20 +15,20 @@
 #show enum: set block(above: 1.2em, below: 1.2em)
 #set enum(spacing: 1.2em)
 
-#show heading: set block(above: 1.4em, below: 1em)
-#show heading.where(level: 1): it => [
+#show title: set block(above: 1.4em, below: 1em)
+#show title: it => [
   #v(1em)
   #align(center)[
-    #set text(size: 21pt, weight: "regular")
+    #set text(size: 23pt, weight: "regular")
     #it.body
   ]
 ]
 
-= Esercizio: Manipolazione di stringhe in C++
+#title[Esercizio: Manipolazione di stringhe in C++]
 
 #v(1em)
 
-== Parte A: Implementazione `my_strcpy`
+= Parte A: Implementazione `my_strcpy`
 
 Scrivi un programma in linguaggio *C++* che:
 
@@ -45,7 +45,7 @@ char *my_strcpy(char dst[], const char src[]);
 ```
 
 #v(10pt)
-=== Esempio
+== Esempio
 
 === Input: 
 ```text
@@ -59,9 +59,9 @@ str2 PRIMA:
 str2 DOPO: abc 
 ```
 
-#v(2em)
+#v(1em)
 
-== Parte B: Verifica di stringa composta da solo lettere maiuscole o cifre
+= Parte B: Verifica di stringa composta da solo lettere maiuscole o cifre
 
 Estendi il programma precedente introducendo una funzione che verifichi se una stringa è composta esclusivamente da:
 
@@ -76,7 +76,7 @@ bool is_alpha_maiusc_or_numeric(const char str[]);
 ```
 
 #v(10pt)
-=== Esempi
+== Esempi
 
 #grid(
 columns: (1fr, 1fr),

@@ -2,12 +2,12 @@
 using namespace std;
 
 
-// Sia n ∈ ℕ, v = (v_0,...,v_{n-1}) ∈ ℤⁿ. Definiamo informalmente la funzione f(v, n) che
+// Sia n ∈ ℕ, v = (v₀,...,vₙ₋₁) ∈ ℤⁿ. Definiamo informalmente la funzione f(v, n) che
 // restituisce l'array invertito:
 // 
-//                     ⎧ v                                                       se n ≤ 1
+//                     ⎧ v                                                    se n ≤ 1
 //          f(v, n) =  ⎨ 
-//                     ⎩ (v_{n-1}) ⊕ f((v_1,...,v_{n-2}), n - 2) ⊕ (v_0)       se n > 1
+//                     ⎩ (vₙ₋₁) ⊕ f((v₁,...,vₙ₋₂), n - 2) ⊕ (v₀)            se n > 1
 // 
 // 
 // dove ⊕ rappresenta la concatenazione di vettori.

@@ -8,17 +8,17 @@
 #set block(spacing: 0.65em)
 #show list: set block(above: 1.2em, below: 1.2em)
 #set list(spacing: 1.2em)
-#show heading: set block(above: 1.4em, below: 1em)
-#show heading.where(level: 1): it => [
+#show title: set block(above: 1.4em, below: 1em)
+#show title: it => [
   #v(1em)
   #align(center)[
-    #set text(size: 21pt, weight: "regular")
+    #set text(size: 23pt, weight: "regular")
     #it.body
   ]
 ]
 
-= Esercizio: Centro Stampe
-== Prova scritta 09-09-2025
+#title[Esercizio: Centro Stampe]
+= Prova scritta 09-09-2025
 Un centro stampe dispone di `p` stampanti identiche (`1 ≤ p ≤ 10`). Ogni stampante può eseguire una
 sola coda di lavori (jobs) e stampa una pagina al minuto (i minuti trascorsi corrispondono alle pagine
 stampate). Le stampanti sono numerate a partire da 1. Il numero di lavori in coda ad una stampante è

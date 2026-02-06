@@ -2,13 +2,13 @@
 using namespace std;
 
 
-// Sia n ∈ ℕ, v = (v_0,...,v_{n-1}) ∈ ℤⁿ, x ∈ ℤ. Per 0 ≤ k ≤ n definiamo
+// Sia n ∈ ℕ, v = (v₀,...,vₙ₋₁) ∈ ℤⁿ, x ∈ ℤ. Per 0 ≤ k ≤ n definiamo
 // 
 //                       ⎧ 0                       se k = 0,
 //                       ⎪
-//          f(v, k, x) = ⎨ 1                       se k > 0 ∧ v_{k-1} = x,
+//          f(v, k, x) = ⎨ 1                       se k > 0 ∧ vₖ₋₁ = x,
 //                       ⎪
-//                       ⎩ f(v, k - 1, x)          se k > 0 ∧ v_{k-1} ≠ x.
+//                       ⎩ f(v, k - 1, x)          se k > 0 ∧ vₖ₋₁ ≠ x.
 // 
 // 
 // contains(v, n, x) = f(v, n, x)

@@ -12,15 +12,15 @@ Il repository è organizzato in laboratori (`lab1` - `lab9`), ciascuno contenent
 
 ```
 FondamentiDiInformatica/
-├── lab1/           # Introduzione alla programmazione
-├── lab2/           # Cicli e iterazioni
-├── lab3/           # Strutture di controllo
-├── lab4/           # Array e puntatori
-├── lab5/           # Funzioni e modularità
-├── lab6/           # Stringhe e gestione memoria
-├── lab7/           # Strutture dati
-├── lab8/           # File e I/O
-├── lab9/           # Progetti avanzati
+├── lab1/           # Introduzione al C++: variabili, I/O, operazioni base
+├── lab2/           # Cicli for e while, iterazioni
+├── lab3/           # Cicli annidati, pattern grafici, quadrati cavi
+├── lab4/           # Array: dichiarazione e operazioni
+├── lab5/           # Ricorsione e funzioni ricorsive
+├── lab6/           # Stringhe C-style con char[]
+├── lab7/           # Struct e punti 2D
+├── lab8/           # Liste concatenate con puntatori
+├── lab9/           # Progetti: centro stampe, liste colorate
 └── pdf/            # PDF generati automaticamente
 ```
 
@@ -84,15 +84,15 @@ I PDF generati saranno disponibili nella cartella `pdf/` con la stessa struttura
 
 | Lab | Argomento | Esercizi |
 |-----|-----------|----------|
-| Lab 1 | Introduzione al C++ | Variabili, tipi di dato, I/O |
-| Lab 2 | Cicli | `for`, `while`, `do-while` |
-| Lab 3 | Controllo di flusso | `if-else`, `switch`, operatori logici |
-| Lab 4 | Array e puntatori | Array, gestione memoria, aritmetica puntatori |
-| Lab 5 | Funzioni | Definizione, passaggio parametri, ricorsione |
-| Lab 6 | Stringhe | `char[]`, `string`, manipolazione testo |
-| Lab 7 | Strutture dati | `struct`, liste, gestione dati |
-| Lab 8 | File I/O | Lettura/scrittura file, stream |
-| Lab 9 | Progetti | Centro stampe, liste colorate |
+| Lab 1 | Introduzione al C++ | Variabili, tipi di dato, I/O, somma di numeri |
+| Lab 2 | Cicli | `for`, `while`, iterazioni, stampa sequenze |
+| Lab 3 | Cicli annidati e grafica | Quadrati cavi, diagonali, pattern con matrici |
+| Lab 4 | Array | Dichiarazione, inizializzazione, operazioni su array |
+| Lab 5 | Ricorsione | Funzioni ricorsive, somma ricorsiva, casi base |
+| Lab 6 | Stringhe C-style | `char[]`, manipolazione stringhe, validazione caratteri |
+| Lab 7 | Struct | Definizione strutture, punti 2D, operazioni geometriche |
+| Lab 8 | Liste concatenate | Implementazione liste, inserimento, rimozione, stampa |
+| Lab 9 | Progetti completi | Centro stampe con code, liste colorate con enum |
 
 ## 🤝 Contribuire
 

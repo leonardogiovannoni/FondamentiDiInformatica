@@ -15,20 +15,19 @@
 #show enum: set block(above: 1.2em, below: 1.2em)
 #set enum(spacing: 1.2em)
 
-#show heading: set block(above: 1.4em, below: 1em)
-#show heading.where(level: 1): it => [
+#show title: set block(above: 1.4em, below: 1em)
+#show title: it => [
   #v(1em)
   #align(center)[
-    #set text(size: 21pt, weight: "regular")
+    #set text(size: 23pt, weight: "regular")
     #it.body
   ]
 ]
-
-= Esercizio: Lettura, stampa e manipolazione di matrici
+#title[Esercizio: Lettura, stampa e manipolazione di matrici]
 
 #v(1em)
 
-== Parte A: Lettura e stampa di una matrice
+= Parte A: Lettura e stampa di una matrice
 
 Scrivi un programma in linguaggio *C++* che:
 
@@ -44,7 +43,7 @@ void stampa_matrice(int *m, int rows, int cols);
 ```
 
 #v(10pt)
-=== Esempio
+== Esempio
 
 === Input:
 
@@ -61,7 +60,7 @@ void stampa_matrice(int *m, int rows, int cols);
 
 #v(0em)
 
-== Parte B: Inversione delle colonne di una matrice
+= Parte B: Inversione delle colonne di una matrice
 
 Estendi il programma precedente aggiungendo una funzione che *inverta l'ordine delle colonne* della matrice, per ogni riga.
 
@@ -76,7 +75,7 @@ void inverti_colonne(int *m, int rows, int cols);
 ```
 
 #v(10pt)
-=== Esempio
+== Esempio
 
 === Input:
 

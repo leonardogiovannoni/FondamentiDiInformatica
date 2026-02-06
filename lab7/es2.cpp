@@ -30,15 +30,9 @@ void push_front(Elem **pphead, int n) {
 int main() {
     Elem *phead = nullptr;
     cout << "Inserisci una sequenza di numeri interi positivi:" << endl;
-    bool b = true;
-    while (b) {
-        int n = 0;
-        cin >> n;
-        if (n < 0) {
-            b = false;
-        } else {
-            push_front(&phead, n);
-        }
+    int n = 0;
+    while (cin >> n) {
+        push_front(&phead, n);
     }
 
     print(phead);

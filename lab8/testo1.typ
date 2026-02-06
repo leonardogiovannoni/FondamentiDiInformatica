@@ -8,17 +8,17 @@
 #set block(spacing: 0.65em)
 #show list: set block(above: 1.2em, below: 1.2em)
 #set list(spacing: 1.2em)
-#show heading: set block(above: 1.4em, below: 1em)
-#show heading.where(level: 1): it => [
-  #v(4em)
+
+#show title: set block(above: 1.4em, below: 1em)
+#show title: it => [
+  #v(1em)
   #align(center)[
-    #set text(size: 21pt, weight: "regular")
+    #set text(size: 23pt, weight: "regular")
     #it.body
   ]
 ]
 
-= Esercizio: Stampa di una lista concatenata
-
+#title[Esercizio: Stampa di una lista concatenata]
 #v(7em)
 
 Scrivere un programma in linguaggio *C++* che:
@@ -45,14 +45,16 @@ void print(Elem *phead) {
 ```
 
 #v(10pt)
-== Input
+== Esempio
+
+=== Input
 
 ```text
 3 5 1 .
 ```
 
 #v(10pt)
-== Output
+=== Output
 
 ```text
 [1, 3, 5]

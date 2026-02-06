@@ -1,7 +1,7 @@
 #set page(
-  width: 21cm, 
+  width: 21cm,
   height: 29.7cm,
-  margin: (top: 2.54cm, bottom: 2.54cm, left: 2.54cm, right: 2.54cm)
+  margin: (top: 2.54cm, bottom: 2.54cm, left: 2.54cm, right: 2.54cm),
 )
 #set text(size: 12pt, font: "New Computer Modern")
 #set par(leading: 0.65em, spacing: 0.65em)
@@ -15,16 +15,15 @@
 #show enum: set block(above: 1.2em, below: 1.2em)
 #set enum(spacing: 1.2em)
 
-#show heading: set block(above: 1.4em, below: 1em)
-#show heading.where(level: 1): it => [
-  #v(4em)
+#show title: set block(above: 1.4em, below: 1em)
+#show title: it => [
+  #v(1em)
   #align(center)[
-    #set text(size: 21pt, weight: "regular")
+    #set text(size: 23pt, weight: "regular")
     #it.body
   ]
 ]
-
-= Esercizio 3: Calcolo del Massimo Comune Divisore (MCD)
+#title[Esercizio 3: Calcolo del Massimo Comune Divisore (MCD)]
 
 #v(7em)
 
